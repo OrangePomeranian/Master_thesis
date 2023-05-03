@@ -1,0 +1,24 @@
+Wersja działająca Maf 0.05
+
+./plink --file out --1 --recode --geno 0.05 --allow-no-sex --out geno0.05
+
+./plink --file geno0.05 --recode --maf 0.05 --out maf0.05                
+
+./plink --file maf0.05  --recode --hwe 1e-6 --out hwe_1_part             
+
+./plink --file hwe_1_part --recode --hwe 1e-10 --hwe-all --out hwe_2_part
+
+./plink --file hwe_2_part  --recode --assoc --allow-no-sex --out assoc_test_maf_0.05
+
+
+Wersja działająca Maf 0.01
+
+./plink --file out --1 --recode --geno 0.05 --allow-no-sex --out geno0.05
+
+./plink --file geno0.05 --recode --maf 0.01 --out maf0.01                
+
+./plink --file maf0.01  --recode --hwe 1e-6 --out hwe_1_part             
+
+./plink --file hwe_1_part --recode --hwe 1e-10 --hwe-all --out hwe_2_part
+
+./plink --file hwe_2_part  --recode --assoc --allow-no-sex --out assoc_test_maf_0.01
